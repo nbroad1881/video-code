@@ -2,13 +2,17 @@
 
 This video is about how to finetune an open model to improve tool calling. Tool calling gives the model the ability to interact with other APIs and it is an essential feature in agents.  
 
-## Contents
+Finetuning can boost performance noticeably depending on the quality and quantity of the data.
 
-[Tau2 Benchmarking Instructions](./benchmark.md)
-  - Starting local vllm server
-  - Running tau2-bench
-[Working with the original apigen dataset](./prepare-apigen-dataset.ipynb)
-[Working with the apigen-with-thinking dataset](./prepare-apigen-with-thinking.ipynb)
+
+## Contents
+  
+- [Tau2 Benchmarking Instructions](./benchmark.md)  
+  - Starting local vllm server  
+  - Running tau2-bench  
+- [Creating a training dataset with the original apigen dataset](./prepare-apigen-dataset.ipynb)  
+- [Creating a training dataset with the apigen-with-thinking dataset](./prepare-apigen-with-thinking.ipynb)  
+  - A modified version of the original apigen dataset with thinking traces  
 
 
 

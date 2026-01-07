@@ -1,0 +1,9 @@
+streamlit
+openai
+datasets
+transformers
+together
+python-dotenv
+ipywidgets
+ipython
+sentencepiece

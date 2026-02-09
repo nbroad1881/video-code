@@ -14,11 +14,8 @@ import json
 import re
 import hashlib
 import argparse
-import sys
 from typing import List, Dict, Any, Optional
 from openai import OpenAI
-import time
-from datetime import datetime
 from datasets import load_dataset
 
 # Parse command-line arguments
@@ -697,7 +694,7 @@ def display_message(msg: Dict):
 
 def main():
     """Main application."""
-    # Parse command-line arguments
+    # Parse command-line arguments BEFORE any Streamlit calls
     args = parse_args()
     
     st.set_page_config(

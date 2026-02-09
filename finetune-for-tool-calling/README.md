@@ -5,20 +5,55 @@ This video is about how to finetune an open model to improve tool calling. Tool 
 Finetuning can boost performance noticeably depending on the quality and quantity of the data.
 
 
+## Installation
+
+This project uses `uv` for dependency management.
+
+<details>
+<summary>Installation steps</summary>
+
+1. Install uv (if not already installed):
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+2. Install dependencies:
+```sh
+uv sync
+```
+
+This will create a virtual environment at `.venv` and install all required packages.
+
+</details>
+
+
+
+
 ## Contents
   
 - [Tau2 Benchmarking Instructions](./benchmark.md)  
   - Starting local vllm server  
-  - Running tau2-bench  
+  - Running [tau2-bench](https://github.com/sierra-research/tau2-bench)  
 - [Creating a training dataset with the original apigen dataset](./prepare-apigen-dataset.ipynb)  
 - [Creating a training dataset with the apigen-with-thinking dataset](./prepare-apigen-with-thinking.ipynb)  
   - A modified version of the original apigen dataset with thinking traces  
 
 
+### Benchmarking results
+
+
+| Model     | No FT | FT (no thinking) | FT (with thinking) |
+|-----------|-------|------------------|--------------------|
+| Qwen3 8B  | 0.345 | 0.333            | 0.386              |
+| Qwen3-14B | 0.447 | 0.416            | 0.532              | 
+
+
+I used moonshotai/Kimi-K2-Instruct-0905 through the Together AI API to act as the user agent.
+
 
 ### Chat App
 
-Here is a basic demo of using the model as a customer service agent in retail. It can provide information about products and orders.
+[Here](./chat_app.py) is a basic demo of using the model as a customer service agent in retail. It can provide information about products and orders.
 
 
 #### Steps
@@ -62,7 +97,7 @@ vllm serve $base_model_path \
 2. Launch streamlit app ([code here](./chat_app.py)) 
 
 ```sh
-streamlit run chat_app.py -- --vllm-base-url http://localhost:$port/v1 --vllm-model $local_llm_name
+uv run streamlit run chat_app.py -- --vllm-base-url http://localhost:$port/v1 --vllm-model $local_llm_name
 ```
 
 3. Go to streamlit app in browser: http://localhost:8501

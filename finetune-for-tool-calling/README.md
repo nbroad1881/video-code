@@ -1,5 +1,7 @@
 # Finetune for Tool Calling
 
+[Link to YouTube video](https://youtu.be/hEQ83RKhFJs)
+
 This video is about how to finetune an open model to improve tool calling. Tool calling gives the model the ability to interact with other APIs and it is an essential feature in agents.  
 
 Finetuning can boost performance noticeably depending on the quality and quantity of the data.
